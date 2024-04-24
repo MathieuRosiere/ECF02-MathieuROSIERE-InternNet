@@ -3,7 +3,7 @@ import { useInterNetStore } from "@/stores/myStore";
 import { storeToRefs } from "pinia";
 import { reactive } from "vue";
 
-const emits = defineEmits(['closeModal'])
+const emits = defineEmits(["closeModal"]);
 
 const store = useInterNetStore();
 const { companies, internships } = storeToRefs(store);
@@ -27,7 +27,7 @@ const submitInternshipHandler = () => {
   <div class="modal-bg" @click.self="$emit('closeModal')">
     <div class="modal-content">
       <form action="#" @submit.prevent="submitInternshipHandler">
-        <div>
+        <div class="label-input">
           <label for="company">Entreprise :</label>
           <select
             name="company"
@@ -40,19 +40,19 @@ const submitInternshipHandler = () => {
           </select>
         </div>
 
-        <div>
+        <div class="label-input">
           <label for="title">Titre :</label>
           <input id="title" type="text" v-model="newInternship.title" />
         </div>
-        <div>
+        <div class="label-input">
           <label for="details">Description :</label>
           <input id="details" type="text" v-model="newInternship.details" />
         </div>
-        <div>
+        <div class="label-input">
           <label for="start">Date de début :</label>
           <input id="start" type="date" v-model="newInternship.start" />
         </div>
-        <div>
+        <div class="label-input">
           <label for="end">Date de fin :</label>
           <input id="end" type="date" v-model="newInternship.end" />
         </div>
@@ -77,10 +77,21 @@ const submitInternshipHandler = () => {
   height: 600px;
   padding: 5%;
   box-sizing: border-box;
-  border: solid 4px var(--font-color-white);
+  border: solid 1px;
   border-radius: 1rem;
   aspect-ratio: 1 / 1;
-  background-color: var(--body-bg-color);
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+}
+
+.label-input {
   display: flex;
   flex-flow: column nowrap;
 }

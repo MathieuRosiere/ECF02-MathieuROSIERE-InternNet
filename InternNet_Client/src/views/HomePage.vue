@@ -3,7 +3,7 @@
 </script>
 
 <template>
- <h1>hello</h1>
+ <h1>Best App Ever</h1>
 </template>
 
 <style scoped>

@@ -7,21 +7,38 @@ const store = useInterNetStore();
 const { fetchCompanies, fetchInternships } = store;
 
 onMounted(() => {
-  fetchCompanies();
   fetchInternships();
+  fetchCompanies();
 });
 </script>
 
 <template>
   <header>
     <nav>
-      <RouterLink to="/">Accueil</RouterLink>
-      <RouterLink to="/companies">Entreprises</RouterLink>
-      <RouterLink to="/stages">Stages</RouterLink>
+      <RouterLink class="router" to="/">Accueil</RouterLink>
+      <RouterLink class="router" to="/companies">Entreprises</RouterLink>
+      <RouterLink class="router" to="/stages">Stages</RouterLink>
     </nav>
   </header>
   <RouterView />
-  <h1>mon app</h1>
+  <footer></footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+header {
+  height: 10%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  height: 10%;
+}
+
+.router {
+  text-decoration: none;
+  padding-right: 15px;
+}
+</style>
